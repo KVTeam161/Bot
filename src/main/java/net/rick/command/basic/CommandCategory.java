@@ -1,19 +1,25 @@
 package net.rick.command.basic;
 
 public enum CommandCategory {
-    NONE(-1),
-    USUALLY(0),
-    FUN(1),
-    USEFULL(2),
-    MODERATION(3);
+    NONE("Brak", -1),
+    INFORMATIVE("Informacyjne", 0),
+    FUN("Zabawne", 1),
+    USEFULL("Uzyteczne", 2),
+    MODERATION("Moderacyjne", 3);
 
+    private final String name;
     private final int id;
 
-    CommandCategory(int id) {
+    CommandCategory(String name, int id) {
+        this.name = name;
         this.id = id;
     }
 
     public int getId() {
         return this.id;
+    }
+
+    public String getName() {
+        return name;
     }
 }
