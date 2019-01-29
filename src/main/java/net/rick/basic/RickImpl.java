@@ -6,7 +6,10 @@ import net.rick.command.basic.CommandManager;
 import net.rick.command.fun.*;
 import net.rick.command.informative.*;
 import net.rick.command.moderation.*;
+<<<<<<< HEAD
 import net.rick.command.none.HelpCommand;
+=======
+>>>>>>> ba63aacd120ccc90d3423ef59d6faf5a03f529c2
 import net.rick.impl.CommandManagerImpl;
 import net.rick.listener.CommandListener;
 import org.jetbrains.annotations.NotNull;

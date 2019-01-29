@@ -31,7 +31,11 @@ public abstract class Command {
     public abstract boolean onCommand(MessageReceivedEvent event, String... args);
 
     public String getFullUsage() {
+<<<<<<< HEAD
         return "prawidłowe użycie komendy: " + this.usage;
+=======
+        return "prawidlowe uzycie komendy: " + this.usage;
+>>>>>>> ba63aacd120ccc90d3423ef59d6faf5a03f529c2
     }
 
     public String getNameNoPrefix() {
