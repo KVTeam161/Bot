@@ -31,6 +31,15 @@ public abstract class Command {
     public abstract boolean onCommand(MessageReceivedEvent event, String... args);
 
     public String getFullUsage() {
-        return "Prawidlowe uzycie komendy: " + this.usage;
+        return "prawidłowe użycie komendy: " + this.usage;
+    }
+
+    public String getNameNoPrefix() {
+        return this.name.substring(3);
+    }
+
+    public boolean sendUsage(MessageReceivedEvent event) {
+        event.getTextChannel().sendMessage(event.getAuthor().getAsMention()+", "+this.getFullUsage()).queue();
+        return true;
     }
 }

@@ -1,17 +1,16 @@
 package net.rick.basic;
 
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.OnlineStatus;
+import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.Game;
 import net.rick.command.basic.CommandManager;
-import net.rick.command.usually.ExampleCommand;
+import net.rick.command.fun.*;
+import net.rick.command.informative.*;
+import net.rick.command.moderation.*;
+import net.rick.command.none.HelpCommand;
 import net.rick.impl.CommandManagerImpl;
 import net.rick.listener.CommandListener;
 import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.*;
 
 import javax.security.auth.login.LoginException;
 
@@ -54,7 +53,10 @@ public class RickImpl implements Rick {
     @NotNull
     private void initCommands() {
         this.logger.info("# Loading commands...");
-        new ExampleCommand(this.commandManager);
+        new InfoCommand(this.commandManager);
+        new WubbaCommand(this.commandManager);
+        new KickCommand(this.commandManager);
+        new HelpCommand(this.commandManager); //it must be last
         this.logger.info("# Loaded ("+this.commandManager.getCommands().size()+") commands!");
     }
 

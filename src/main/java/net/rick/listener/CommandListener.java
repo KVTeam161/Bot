@@ -16,14 +16,12 @@ public class CommandListener extends ListenerAdapter {
     }
 
     @Override
-    public void onMessageReceived(MessageReceivedEvent event) { //TODO change to java 11
+    public void onMessageReceived(MessageReceivedEvent event) {
         final String message = event.getMessage().getContentDisplay();
         if (message.startsWith("ri!")) {
             final String[] args = message.split(" ");
             final Optional<Command> command = this.commandManager.getCommand(args[0]);
-            if (command.isPresent()) {
-                command.ifPresent(c -> c.onCommand(event, args));
-            } else event.getTextChannel().sendMessage("Unknown command!").queue();
+            command.ifPresentOrElse(c -> c.onCommand(event, args), () -> event.getTextChannel().sendMessage("Unknown command!"));
         }
     }
 }
